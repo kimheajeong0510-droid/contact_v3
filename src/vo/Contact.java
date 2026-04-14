@@ -5,14 +5,14 @@ public class Contact {
     private int age;
     private String phone;
     // 생성자
-    public Contact(long id, String name, int age, String phone) {
+    public Contact(Long id, String name, int age, String phone) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.phone = phone;
     }
     // Getter
-    public long getId() {
+    public Long getId() {
         return id;
     }
     public String getName() {
