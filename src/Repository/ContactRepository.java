@@ -35,4 +35,15 @@ public class ContactRepository {
         System.out.println("[ContactService.deleteById()]");
         state.getStore().remove(deleteId);
     }
+
+    public void updateById(Long updateId, String updatePhone) {
+        System.out.println("[ContactService.updeteById()]");
+        // 1. 수정 할 대상의 연락처를 찾아서 그 안에 있는 전화번호 수정
+        Contact contact = state.getStore().get(updateId);
+        // 2. 해당 id에 다시 저장
+        contact.setPhone(updatePhone);
+        // Map은 키가 같으면 수정, 다르면 insert
+        state.getStore().put(updateId, contact);
+
+    }
 }

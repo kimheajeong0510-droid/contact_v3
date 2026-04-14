@@ -50,6 +50,11 @@ public class ContactView {
     }
     private void update() {
         System.out.println("[ContactView.uodate()]");
+        System.out.println("수정 할 ID : ");
+        Long updateId = sc.nextLong();
+        System.out.println("수정 할 phone : ");
+        String updatePhone = sc.next();
+        contactService.update(updateId,updatePhone);
     }
     private void readAll() {
         System.out.println("[ContactView.readAll()]");
