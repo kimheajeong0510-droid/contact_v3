@@ -43,6 +43,10 @@ public class ContactView {
     }
     private void delete() {
         System.out.println("[ContactView.delete()]");
+        System.out.println("삭제 ID : ");
+        Long deleteId = sc.nextLong();
+        // 서비스로 id 보내기
+        contactService.delete(deleteId);
     }
     private void update() {
         System.out.println("[ContactView.uodate()]");
@@ -51,6 +55,11 @@ public class ContactView {
         System.out.println("[ContactView.readAll()]");
         // 맵을 읽어와서 화면에 출력
         Map<Long, Contact> store = contactService.findAll();
+        // store 비어 있으면 없다고 출력한 후 종료
+        if (store.isEmpty()){
+            System.out.println("저장 된 자료가 없어요");
+            return;
+        }
         // 출력
         for (Long key : store.keySet()){
             System.out.println(store.get(key));
