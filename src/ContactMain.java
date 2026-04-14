@@ -10,6 +10,7 @@ public class ContactMain {
         Scanner scanner = new Scanner(System.in);
         ContactState state = new ContactState();
         ContactRepository repository = new ContactRepository(state);
+
         ContactService contactService = new ContactService(repository, state);
         ContactView contactView = new ContactView(scanner, contactService);
         // 화면 호출

@@ -1,6 +1,8 @@
 package view;
 import service.ContactService;
+import vo.Contact;
 
+import java.util.Map;
 import java.util.Scanner;
 public class ContactView {
     private final Scanner sc;
@@ -47,6 +49,12 @@ public class ContactView {
     }
     private void readAll() {
         System.out.println("[ContactView.readAll()]");
+        // 맵을 읽어와서 화면에 출력
+        Map<Long, Contact> store = contactService.findAll();
+        // 출력
+        for (Long key : store.keySet()){
+            System.out.println(store.get(key));
+        }
     }
     private void creat(){
     System.out.println("[ContactView.create()]");

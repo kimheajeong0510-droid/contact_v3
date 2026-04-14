@@ -6,18 +6,22 @@ import vo.Contact;
 import java.util.Map;
 
 public class ContactRepository {
-   private final ContactState state;
+    private final ContactState state;
 
     public ContactRepository(ContactState state) {
         this.state = state;
     }
 
-    public void save(Long id, Contact contact){
+    public void save(Long id, Contact contact) {
         System.out.println("[ContactRepository.save()]");
-        Map<Long,Contact> currentStore = state.getStore();
+        Map<Long, Contact> currentStore = state.getStore();
         currentStore.put(id, contact);
         System.out.println("저장 완료");
         state.increaseId();
         System.out.println("id 증가완료");
+    }
+
+    public Map<Long, Contact> findAll() {
+        return state.getStore();
     }
 }
